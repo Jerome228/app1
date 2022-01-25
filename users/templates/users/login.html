@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block title %}Log In{% endblock title %}
+{% block content %}
+{% if error %}
+<p><strong>Invalid credentials. Please try again.</strong></p>
+{% endif %}
+<h3>Log In</h3>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Log In</button>
+</form>
+<p>Forgot your password? <a href="{% url 'users:password_reset' %}">Click here to reset your password.</a></p>
+<p>New here? <strong><a href="{% url 'users:register' %}">Register</a></strong>.</p>
+{% endblock content %}

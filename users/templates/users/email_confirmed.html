@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+{% block title %}Account activation{% endblock title %}
+{% block content %}
+{% if user.is_authenticated %}
+<p>Thank you for your email confirmation. You are now logged in. Go to <strong><a href="{% url 'users:home' %}">HOME</a></strong>.</p>
+{% else %}
+<p>Your activation link is invalid!</p>
+{% endif %}
+{% endblock content %}

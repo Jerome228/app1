@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+{% if user.is_authenticated %}
+  Welcome {{ user.first_name|capfirst }}!
+  <p><a href="{% url 'users:password_change' %}">Change password</a></p>
+  <p><a href="{% url 'users:logout' %}">Log Out</a></p>
+{% else %}
+  <p>Welcome. You are not logged in</p>
+  <a href="{% url 'users:login' %}">Log In</a> |
+  <a href="{% url 'users:register' %}">Register</a>
+{% endif %}
+{% endblock %}
